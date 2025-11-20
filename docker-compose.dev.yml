@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "8000:8000"
+    volumes:
+      # Source code for hot reload
+      - ./backend/src:/app/src
+      - ./backend/tests:/app/tests
+      # Data persistence
+      - ./data:/app/data
+      # Environment configuration
+      - ./.env:/app/.env
+      # Config persistence
+      - ./config:/app/config
+      # Obsidian
+      - "/Users/randaldrew/Documents/Obsidian Vault:/app/obsidian_vault"
+    environment:
+      - PYTHONPATH=/app/src
+      - ENVIRONMENT=development
+      - DATA_DIR=/app/data
+    env_file:
+      - .env
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      - data-init
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      # Source code for hot reload
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      # Node modules cache (performance optimization)
+      - frontend_node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:8000
+      - CHOKIDAR_USEPOLLING=true  # For file watching in Docker
+    command: npm run dev -- --host 0.0.0.0
+    depends_on:
+      - backend
+
+  # Initialize data directory with proper permissions
+  data-init:
+    image: alpine:latest
+    volumes:
+      - ./data:/app/data
+    command: |
+      sh -c "
+        mkdir -p /app/data/{database,cache,exports,logs}
+        chown -R 1000:1000 /app/data
+        echo 'Data directory initialized'
+      "
+
+volumes:
+  frontend_node_modules:

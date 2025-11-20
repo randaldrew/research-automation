@@ -1,0 +1,133 @@
+{
+  "_schema_version": "1.0",
+  "_description": "Source configurations for Research Automation. Each source has a unique ID and specifies its type and configuration.",
+
+  "default_email": {
+    "type": "email",
+    "enabled": true,
+    "name": "Default Email Source",
+    "description": "Primary email account for newsletter processing",
+    "config": {
+      "server": "${EMAIL_SERVER}",
+      "username": "${EMAIL_USERNAME}",
+      "password": "${EMAIL_PASSWORD}",
+      "folder": "${EMAIL_FOLDER}",
+      "smtp_server": "${SMTP_SERVER}",
+      "smtp_port": "${SMTP_PORT}",
+      "notification_email": "${NOTIFICATION_EMAIL}"
+    }
+  },
+
+  "default_rss": {
+    "type": "rss",
+    "enabled": true,
+    "name": "Default RSS Sources",
+    "description": "RSS feeds configured in rss_feeds.json",
+    "config": {
+      "use_rss_feeds_config": true,
+      "config_file": "rss_feeds.json"
+    }
+  },
+
+  "_examples": {
+    "my_blog": {
+      "type": "web",
+      "enabled": false,
+      "name": "My Favorite Blog",
+      "description": "Example web scraper configuration",
+      "config": {
+        "base_url": "https://example.com",
+        "list_page": "https://example.com/articles",
+        "list_selector": ".article-list .article-item a",
+        "title_selector": "h1.article-title, .post-title h1",
+        "content_selector": ".article-content, .post-content",
+        "author_selector": ".author-name, .byline",
+        "date_selector": ".publish-date, time[datetime]",
+        "max_articles": 5,
+        "follow_links": true,
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (compatible; ResearchBot/1.0)"
+        },
+        "rate_limit_delay": 2.0
+      }
+    },
+
+    "tech_news_site": {
+      "type": "web",
+      "enabled": false,
+      "name": "Tech News Site",
+      "description": "Example of a news aggregator site",
+      "config": {
+        "base_url": "https://technews.example.com",
+        "list_page": "https://technews.example.com/latest",
+        "list_selector": "article h2 a",
+        "title_selector": "h1",
+        "content_selector": ".article-body p",
+        "exclude_selectors": [".advertisement", ".related-articles"],
+        "max_articles": 10,
+        "categories": ["AI", "blockchain", "startups"],
+        "min_content_length": 500
+      }
+    },
+
+    "reddit_source": {
+      "type": "reddit",
+      "enabled": false,
+      "name": "Reddit Source Example",
+      "description": "Future plugin for Reddit content",
+      "config": {
+        "subreddits": ["MachineLearning", "technology", "startups"],
+        "post_types": ["link", "self"],
+        "min_score": 50,
+        "max_posts_per_subreddit": 5
+      }
+    },
+
+    "twitter_source": {
+      "type": "twitter",
+      "enabled": false,
+      "name": "Twitter Source Example",
+      "description": "Future plugin for Twitter content",
+      "config": {
+        "accounts": ["@elonmusk", "@sama", "@naval"],
+        "hashtags": ["#AI", "#startup"],
+        "lists": ["tech-leaders"],
+        "max_tweets": 20
+      }
+    }
+  },
+
+  "_documentation": {
+    "email_config_fields": {
+      "server": "IMAP server hostname",
+      "username": "Email address for login",
+      "password": "Email password or app password",
+      "folder": "IMAP folder to monitor (usually INBOX)",
+      "smtp_server": "SMTP server for sending notifications",
+      "smtp_port": "SMTP port number",
+      "notification_email": "Email address for notifications"
+    },
+
+    "rss_config_fields": {
+      "use_rss_feeds_config": "If true, loads feeds from separate JSON file",
+      "config_file": "Name of JSON file containing RSS feed configurations"
+    },
+
+    "web_config_fields": {
+      "base_url": "Base URL of the website",
+      "list_page": "URL of the page containing article links",
+      "list_selector": "CSS selector to find article links",
+      "title_selector": "CSS selector to extract article title",
+      "content_selector": "CSS selector to extract article content",
+      "author_selector": "CSS selector to extract author name",
+      "date_selector": "CSS selector to extract publication date",
+      "exclude_selectors": "CSS selectors for elements to exclude from content",
+      "max_articles": "Maximum number of articles to fetch per run",
+      "follow_links": "Whether to follow links to full articles",
+      "headers": "HTTP headers to send with requests",
+      "rate_limit_delay": "Seconds to wait between requests"
+    },
+
+    "variable_substitution": "Use ${VARIABLE_NAME} to reference environment variables or settings"
+  }
+}
