@@ -42,7 +42,7 @@ Before you begin, ensure you have:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/research-automation.git
+   git clone https://github.com/randaldrew/research-automation.git
    cd research-automation
    ```
 
