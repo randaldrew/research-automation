@@ -18,8 +18,12 @@ services:
       - ./.env:/app/.env
       # Config persistence
       - ./config:/app/config
-      # Obsidian
-      - "/Users/randaldrew/Documents/Obsidian Vault:/app/obsidian_vault"
+      # Obsidian (Optional - uncomment and update path if using Obsidian)
+      # - "/path/to/your/Obsidian Vault:/app/obsidian_vault"
+      # Examples:
+      #   Mac:     - "/Users/yourusername/Documents/Obsidian Vault:/app/obsidian_vault"
+      #   Windows: - "C:/Users/yourusername/Documents/Obsidian Vault:/app/obsidian_vault"
+      #   Linux:   - "/home/yourusername/Documents/Obsidian Vault:/app/obsidian_vault"
     environment:
       - PYTHONPATH=/app/src
       - ENVIRONMENT=development
