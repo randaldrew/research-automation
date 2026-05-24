@@ -125,7 +125,7 @@ export const useSettingsStore = create<SettingsState>()(
                 max_articles_per_run: 10,
                 enable_link_enrichment: true,
                 max_links_to_enrich: 50,
-                claude_model: 'claude-3-haiku-20240307'
+                claude_model: 'claude-sonnet-4-6'
               },
               system: backendSettings.system || {
                 data_directory: './data',

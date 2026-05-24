@@ -53,7 +53,7 @@ def initialize_settings_system() -> bool:
                 "max_articles_per_run": 20,
                 "enable_link_enrichment": True,
                 "max_links_to_enrich": 10,
-                "claude_model": "claude-3-5-sonnet-20241022"
+                "claude_model": "claude-sonnet-4-6"
             }
             with open(processing_config_path, 'w') as f:
                 json.dump(default_processing_config, f, indent=2)
@@ -104,7 +104,7 @@ OBSIDIAN_VAULT_PATH=/path/to/your/obsidian/vault
 MAX_ARTICLES_PER_RUN=20
 ENABLE_LINK_ENRICHMENT=true
 MAX_LINKS_TO_ENRICH=10
-CLAUDE_MODEL=claude-3-5-sonnet-20241022
+CLAUDE_MODEL=claude-sonnet-4-6
 """
 
     with open(".env.example", 'w') as f:

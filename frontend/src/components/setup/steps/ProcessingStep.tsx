@@ -29,7 +29,7 @@ export const ProcessingStep: React.FC = () => {
   } = useSetupStore();
 
   const claudeModels = [
-  { value: 'claude-sonnet-4-5', label: 'Claude Sonnet 4.5 (Recommended - Recent)' },
+  { value: 'claude-sonnet-4-6', label: 'Claude Sonnet 4.6 (Recommended)' },
   { value: 'claude-sonnet-4-20250514', label: 'Claude Sonnet 4 (Stable)' },
   { value: 'claude-3-5-haiku-20241022', label: 'Claude Haiku 3.5 (Fast & Economical)' }
 ];

@@ -51,7 +51,7 @@ class ProcessingConfig(BaseModel):
     max_articles_per_run: int = 20
     enable_link_enrichment: bool = True
     max_links_to_enrich: int = 10
-    claude_model: str = "claude-sonnet-4-5"
+    claude_model: str = "claude-sonnet-4-6"
     auto_generate_weekly_summary: bool = True
     weekly_summary_min_days: int = 3
 
@@ -686,7 +686,7 @@ async def get_default_configuration():
                 "max_articles_per_run": 20,
                 "enable_link_enrichment": True,
                 "max_links_to_enrich": 10,
-                "claude_model": "claude-sonnet-4-5"
+                "claude_model": "claude-sonnet-4-6"
             },
             "rss_feeds": {
                 "0x_research": {

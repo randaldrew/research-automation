@@ -121,7 +121,7 @@ export const defaultProcessingConfig: ProcessingConfig = {
   max_articles_per_run: 20,
   enable_link_enrichment: true,
   max_links_to_enrich: 10,
-  claude_model: 'claude-sonnet-4-5',
+  claude_model: 'claude-sonnet-4-6',
   auto_generate_weekly_summary: true,
   weekly_summary_min_days: 3
 };
