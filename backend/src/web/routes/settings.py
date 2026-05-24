@@ -196,7 +196,7 @@ class ConfigurationManager:
                 max_articles_per_run=20,
                 enable_link_enrichment=True,
                 max_links_to_enrich=10,
-                claude_model="claude-3-5-sonnet-20241022",
+                claude_model="claude-sonnet-4-6",
                 auto_generate_weekly_summary = True,
                 weekly_summary_min_days = 3
             )
@@ -210,7 +210,7 @@ class ConfigurationManager:
                 max_articles_per_run=data.get('max_articles_per_run', 20),
                 enable_link_enrichment=data.get('enable_link_enrichment', True),
                 max_links_to_enrich=data.get('max_links_to_enrich', 10),
-                claude_model=data.get('claude_model', 'claude-3-5-sonnet-20241022'),
+                claude_model=data.get('claude_model', 'claude-sonnet-4-6'),
                 auto_generate_weekly_summary=data.get('auto_generate_weekly_summary', True),
                 weekly_summary_min_days=data.get('weekly_summary_min_days', 3)
             )
@@ -222,7 +222,7 @@ class ConfigurationManager:
                 max_articles_per_run=20,
                 enable_link_enrichment=True,
                 max_links_to_enrich=10,
-                claude_model="claude-3-5-sonnet-20241022",
+                claude_model="claude-sonnet-4-6",
                 auto_generate_weekly_summary=True,
                 weekly_summary_min_days=3
             )

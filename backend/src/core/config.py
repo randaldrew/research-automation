@@ -27,7 +27,7 @@ class EmailSettings(BaseModel):
 class ClaudeSettings(BaseModel):
     """Claude API configuration"""
     api_key: str = Field(..., description="Anthropic API key")
-    model: str = Field(default="claude-3-5-sonnet-20241022", description="Claude model to use")
+    model: str = Field(default="claude-sonnet-4-6", description="Claude model to use")
     max_tokens: int = Field(default=8000, description="Maximum tokens per request")
 
 
@@ -66,7 +66,7 @@ class Settings(BaseSettings):
     notification_email: str = Field(..., env="NOTIFICATION_EMAIL")
 
     # Claude settings
-    claude_model: str = Field(default="claude-sonnet-4-5", env="CLAUDE_MODEL")
+    claude_model: str = Field(default="claude-sonnet-4-6", env="CLAUDE_MODEL")
     max_tokens: int = Field(default=2000, env="MAX_TOKENS")
 
     # Processing settings
