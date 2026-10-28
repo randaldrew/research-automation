@@ -71,7 +71,7 @@ def test_config_files():
         "max_articles_per_run": 20,
         "enable_link_enrichment": True,
         "max_links_to_enrich": 10,
-        "claude_model": "claude-sonnet-4-6"
+        "claude_model": "claude-sonnet-5-5"
     }
 
     try:
