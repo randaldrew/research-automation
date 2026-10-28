@@ -12,7 +12,7 @@
 
 ## ✨ Features
 
-- **🤖 AI-Powered Summaries**: Uses Claude Sonnet 4.5 to create insightful summaries with key takeaways and expert questions
+- **🤖 AI-Powered Summaries**: Uses Claude Sonnet to create insightful summaries with key takeaways and expert questions
 - **📧 Email Integration**: Automatically processes newsletters from a dedicated Gmail inbox
 - **🎧 Podcast Support**: Fetches and summarizes podcast transcripts from RSS feeds
 - **🌐 Web Source Management**: Unified interface for managing email, RSS, and web article sources
